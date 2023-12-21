@@ -1,0 +1,121 @@
+.modalWrap {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.modal {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 300px;
+	background-color: #ffff;
+	border-radius: 10px;
+	padding: 0 10px 10px 10px;
+	text-align: center;
+	box-shadow: rgb(38, 57, 77) 10px 10px 20px -10px;
+}
+.modalSwitch {
+	position: relative;
+	height: 30px;
+	width: 160px;
+	overflow: hidden;
+	margin-top: 15px;
+	display: flex;
+	justify-content: space-between;
+	border: 1px solid lightgray;
+	border-radius: 5px;
+}
+.switch {
+	height: 100%;
+	width: 100%;
+	color: white;
+	text-align: center;
+	line-height: 26px;
+	cursor: pointer;
+	z-index: 11;
+	transition: all 0.6s ease;
+}
+.modalSwitch label .signup {
+	color: #000;
+}
+.modalSwitch .switchSelector {
+	position: absolute;
+	height: 100%;
+	width: 50%;
+	left: 0;
+	z-index: 10;
+	border-radius: 5px;
+	background: var(--main-bg-button-color);
+	transition: all 0.4s;
+}
+input[type="radio"] {
+	display: none;
+}
+label {
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.4s;
+}
+.invisible {
+	visibility: hidden;
+	opacity: 0;
+	transition: all 0.4s;
+}
+#signup:checked ~ .switchSelector {
+	left: 50%;
+}
+#signup:checked ~ label.signup {
+	color: #fff;
+	cursor: default;
+	user-select: none;
+}
+#signup:checked ~ label.login {
+	color: #000;
+}
+#login:checked ~ label.signup {
+	color: #000;
+}
+#login:checked ~ label.login {
+	cursor: default;
+	user-select: none;
+}
+.modalContent {
+	margin-top: 5px;
+	display: flex;
+	flex-direction: column;
+}
+.modalContent * {
+	margin: 2px 10px;
+}
+.modalContent input {
+	border-radius: 5px;
+	border: 1px solid lightgray;
+	border-bottom: 2px solid lightgray;
+}
+.modalMessage {
+	overflow: hidden;
+	margin: 10px 0;
+	height: 25px;
+	color: red;
+}
+
+button {
+	margin: 0 10px;
+	color: #ffff;
+	padding: 2px 0;
+	height: 30px;
+	width: 80px;
+	background-color: var(--main-bg-button-color);
+	border-radius: 5px;
+	cursor: pointer;
+	border: none;
+}
+button:hover {
+	font-weight: bold;
+}

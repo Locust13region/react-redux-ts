@@ -1,0 +1,58 @@
+.profile {
+	display: flex;
+	flex-direction: column;
+	> * {
+		margin: 0;
+		margin-top: 10px;
+	}
+}
+.list {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+	overflow: auto;
+}
+.listItemProducts {
+	width: 290px;
+	min-height: 150px;
+	background-color: #fff;
+	box-shadow: 8px 8px 5px rgba(50, 50, 50, 0.1);
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin: 10px 8px;
+	display: flex;
+	flex-direction: column;
+}
+.listItemRecipes {
+	width: clamp(279px, 41vw, 420px);
+	min-height: 150px;
+	background-color: #fff;
+	box-shadow: 8px 8px 5px rgba(50, 50, 50, 0.1);
+	border-top-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+	margin: 10px 8px;
+	display: flex;
+	flex-direction: column;
+}
+.itemTitle {
+	background-color: var(--main-bg-title-color);
+	color: #fff;
+	font-size: 1.2rem;
+	margin-bottom: 2px;
+	border-top-left-radius: 20px;
+	text-align: center;
+}
+
+.itemDescription,
+.itemDepartment {
+	font-weight: 300;
+	margin-bottom: 10px;
+	padding: 4px 6px;
+}
+.itemDescription {
+	flex: 1 0 auto;
+}
+.itemDepartment {
+	flex: 0 0 auto;
+}

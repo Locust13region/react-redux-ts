@@ -1,0 +1,7 @@
+.spinner {
+	min-height: 100vh;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	color: var(--main-bg-button-color);
+}

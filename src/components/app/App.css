@@ -1,0 +1,115 @@
+:root {
+	--main-bg-button-color: #5c6bc0;
+	--main-bg-title-color: rgba(92, 107, 192, 0.7);
+}
+
+.wrapper {
+	height: 100vh;
+	width: min(100%, 1000px);
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+}
+
+.navBar {
+	background-color: hsl(0, 0%, 94%);
+}
+
+.menu {
+	height: 60px;
+	width: 100%;
+	padding: 0 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+}
+
+.menuSection,
+.userSection {
+	display: flex;
+	gap: 0 15px;
+}
+.menuItem,
+.loggedIn {
+	color: #ffff;
+	padding: 2px 0;
+	height: 30px;
+	width: 80px;
+	background-color: var(--main-bg-button-color);
+	border-radius: 5px;
+	cursor: pointer;
+}
+a.active {
+	font-weight: bold;
+}
+.loggedIn {
+	border-radius: 50%;
+	width: 30px;
+}
+.container {
+	padding: 40px;
+	padding-top: 15px;
+	background-color: hsl(0, 0%, 96%);
+	height: 100%;
+	overflow: auto;
+	-ms-overflow-style: none; /* IE и Edge */
+	scrollbar-width: none; /* Firefox */
+	&::-webkit-scrollbar {
+		display: none;
+	} /*Chrome, Safari и Opera*/
+}
+
+.hamburger {
+	display: none;
+}
+
+@media screen and (max-width: 767px) {
+	.hamburger {
+		display: block;
+		height: 30px;
+		width: 30px;
+		border-radius: 0;
+		position: fixed;
+		z-index: 0;
+		top: 0.9rem;
+		left: 0.7rem;
+		padding: 2px;
+		background: var(--main-bg-button-color);
+		cursor: pointer;
+	}
+	.menuSection {
+		position: absolute;
+		height: 300px;
+		width: 200px;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		transform: translateY(-100%);
+		transition: transform 0.2s;
+		z-index: 0;
+		background: var(--main-bg-button-color);
+		color: white;
+		padding-top: 4rem;
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items: center;
+		text-align: left;
+		gap: 15px;
+	}
+	.menuWrap {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		background-color: rgba(0, 0, 0, 0.5);
+	}
+}
+.showMenu {
+	transform: translateY(0);
+}
