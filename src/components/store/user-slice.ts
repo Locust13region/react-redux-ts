@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice, PayloadAction } from "@reduxjs/toolkit";
 import { userRequest } from "../api/request";
 import { TTokenState } from "../store/type";
 
-interface IUserState {
+interface ICurrentUser {
 	_id: string;
 	__v: number;
 	name: string;
@@ -11,25 +11,23 @@ interface IUserState {
 }
 
 export const getUser = createAsyncThunk<
-	IUserState,
+	ICurrentUser,
 	void,
 	{ rejectValue: string; state: { token: TTokenState } }
 >("currentUser/getUser", async (_, { rejectWithValue, getState }) => {
 	const token = getState().token.token;
-	try {
-		return await userRequest(token);
-	} catch (error) {
-		if (error instanceof Error) {
-			return rejectWithValue(error.message);
-		}
+	const response = await userRequest(token);
+	if (!response.ok) {
+		return rejectWithValue(response.statusText);
 	}
+	return await response.json();
 });
 
-interface IInitialState {
-	currentUser: IUserState | string;
+interface IUserState {
+	currentUser: ICurrentUser | string;
 }
 
-const initialState: IInitialState = {
+const initialState: IUserState = {
 	currentUser: "",
 };
 
@@ -37,7 +35,7 @@ export const userSlice = createSlice({
 	name: "currentUser",
 	initialState,
 	reducers: {
-		setCurrentUser: (state, action: PayloadAction<IUserState>) => {
+		setCurrentUser: (state, action: PayloadAction<ICurrentUser>) => {
 			state.currentUser = action.payload;
 		},
 		clearCurrentUser: (state) => {

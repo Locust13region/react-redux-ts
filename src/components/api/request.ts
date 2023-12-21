@@ -29,17 +29,12 @@ export const tokenRequest = async (isLoginChecked: boolean, user: IUser) => {
 };
 
 export const userRequest = async (token: string) => {
-	const response = await fetch(userUrl, {
+	return await fetch(userUrl, {
 		method: "GET",
 		headers: {
 			"x-auth-token": token,
 		},
 	});
-	if (!response.ok) {
-		throw new Error(response.statusText);
-	}
-	const result = await response.json();
-	return result;
 };
 
 export const productsRequest = async () => {
