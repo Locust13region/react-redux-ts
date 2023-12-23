@@ -47,7 +47,7 @@ export const userSlice = createSlice({
 			.addCase(getUser.fulfilled, (state, action) => {
 				state.currentUser = action.payload;
 			})
-			.addCase(getUser.rejected, (state, action) => {
+			.addCase(getUser.rejected, (_, action) => {
 				console.log(action.payload);
 			});
 	},

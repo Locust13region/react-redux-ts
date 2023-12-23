@@ -17,9 +17,12 @@ const Menu = () => {
 				onClick={() => toggleHamburger()}
 				className={onHamburger ? "menuWrap" : undefined}
 			>
-				<div className={onHamburger ? "menuSection showMenu" : "menuSection"}>
+				<div
+					onClick={(e) => e.stopPropagation()}
+					className={onHamburger ? "menuSection showMenu" : "menuSection"}
+				>
 					{menuItems
-						.filter((item) => currentUser? true:item.privat == false)
+						.filter((item) => (currentUser ? true : item.privat == false))
 						.map(({ title, classname, route }, index) => (
 							<NavLink
 								key={index}
@@ -35,7 +38,9 @@ const Menu = () => {
 					onClick={() => toggleHamburger()}
 					className="hamburger"
 				>
-					<i className=" material-icons md-24">{onHamburger ? "close":"menu"}</i>
+					<i className=" material-icons md-24">
+						{onHamburger ? "close" : "menu"}
+					</i>
 				</button>
 			</div>
 		</div>

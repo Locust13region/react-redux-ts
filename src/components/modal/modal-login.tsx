@@ -20,9 +20,9 @@ const ModalLogin: React.FC<TModalLoginProps> = ({
 	const [user, setUser] = useState({
 		_id: "",
 		__v: 0,
-		name: "AndyMas",
-		email: "andy.mas@gmail.com",
-		password: "passmaster",
+		name: "",
+		email: "",
+		password: "",
 	});
 	const [isLoginChecked, setLoginChecked] = useState(true);
 	const [modalMessage, setModalMessage] = useState("");
