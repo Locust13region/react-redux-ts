@@ -1,4 +1,6 @@
 import { createPortal } from "react-dom";
+import { useClickAway } from "react-use";
+import { useRef } from "react";
 import { useState } from "react";
 import { useAppDispatch } from "../hooks/hooks";
 import { setToken } from "../store/token-slice";
@@ -26,6 +28,12 @@ const ModalLogin: React.FC<TModalLoginProps> = ({
 	});
 	const [isLoginChecked, setLoginChecked] = useState(true);
 	const [modalMessage, setModalMessage] = useState("");
+	const ref = useRef(null);
+	useClickAway(ref, () => {
+		setModalMessage("");
+		setShowModal(false);
+		setLoginChecked(true);
+	});
 
 	if (!showModal) {
 		return null;
@@ -51,15 +59,14 @@ const ModalLogin: React.FC<TModalLoginProps> = ({
 			{createPortal(
 				<div
 					className="modalWrap"
-					onClick={() => {
-						setModalMessage("");
-						setShowModal(false);
-						setLoginChecked(true);
-					}}
+
+					// 	setModalMessage("");
+					// 	setShowModal(false);
+					// 	setLoginChecked(true);
 				>
 					<div
+						ref={ref}
 						className="modal"
-						onClick={(e) => e.stopPropagation()}
 					>
 						<div className="modalSwitch">
 							<input
